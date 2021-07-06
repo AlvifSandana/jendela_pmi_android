@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeMenu"
+        android:icon="@drawable/ic_action_home"
+        android:title="Home"
+        />
+
+    <item
+        android:id="@+id/UDDMenu"
+        android:icon="@drawable/ic_action_udd"
+        android:title="UDD"
+        />
+
+    <item
+        android:id="@+id/NotifikasiMenu"
+        android:icon="@drawable/ic_action_notifikasi"
+        android:title="Notifikasi"
+        />
+    <item
+        android:id="@+id/userMenu"
+        android:icon="@drawable/ic_action_user"
+        android:title="Notifikasi"
+        />
+</menu>
