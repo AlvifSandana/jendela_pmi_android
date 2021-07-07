@@ -7,6 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="grey">#ff9e9e9e</color>
     <!--  Warna custom  -->
     <color name="main_1">#E01F18</color>
     <color name="main_2">#DD5C49</color>
@@ -14,7 +15,7 @@
     <color name="main_4">#EAC3BC</color>
     <color name="main_5">#9C2C2B</color>
     <color name="main_6">#BA9B99</color>
-    <color name="main_6_transparan">#CCBA9B99</color>
+    <color name="main_6_transparan">#CCeec7c8</color>
     <!--  Warna custom 2  -->
     <color name="elt_1">#F77D7C</color>
     <color name="elt_2">#FDBDBD</color>

@@ -1,14 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     tools:context=".UDDFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:id="@+id/gaya"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="UDD" />
+        android:layout_height="40dp"
+        android:layout_marginBottom="20dp"
+        android:orientation="horizontal">
 
-</FrameLayout>
+        <View
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="@color/main_1" />
+
+        <View
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="2.2"
+            android:background="@color/main_2" />
+
+        <View
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1.6"
+            android:background="@color/main_3" />
+
+        <View
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:background="@color/main_4" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="80dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/logoapp"
+        android:layout_below="@id/gaya"
+        android:contentDescription="@string/logo_desc" />
+
+    <TextView
+        android:id="@+id/lbl_explore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_below="@id/logo"
+        android:text="EXPLORE UDD PMI KAB. BANYUWANGI"
+        android:textStyle="bold"
+        android:textColor="@color/main_1"/>
+
+    <TextView
+        android:id="@+id/lbl_more_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_below="@id/lbl_explore"
+        android:text="MORE INFO"
+        android:textStyle="bold"
+        android:textColor="@color/main_1"/>
+
+</RelativeLayout>
