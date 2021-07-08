@@ -6,12 +6,12 @@ Fitur yang sedang dikerjakan:
 - [x] Bottom Navigation
 - [ ] Fragment Home xml styles
 - [ ] Fragment UDD xml styles
-- [ ] Fragment Notifikasi xml styles
-- [ ] Fragment User Profile xml styles
-- [ ] Fragment Register new user xml styles
-- [ ] Fragment Login user xml styles
-- [ ] Fragment Stok Darah xml styles
-- [ ] Fragment Jadwal DD xml styles
+- [x] Fragment Notifikasi xml styles
+- [x] Fragment User Profile xml styles
+- [x] Fragment Register new user xml styles
+- [x] Fragment Login user xml styles
+- [x] Fragment Stok Darah xml styles
+- [x] Fragment Jadwal DD xml styles
 
 #### Backend
 - [ ] Register new user
