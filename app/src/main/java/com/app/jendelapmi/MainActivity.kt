@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
-
         // define menu bottomNavigation
         val menu: Menu = bottomNavigation.menu
         // set item for selectedMenu
@@ -59,37 +58,37 @@ class MainActivity : AppCompatActivity() {
      * from bottomNavigation.
      */
     private fun selectedFragment(fragment: Fragment) {
-        var transaction : FragmentTransaction? = supportFragmentManager.beginTransaction()
-        transaction?.replace(R.id.rootFragment, fragment)
-        transaction?.commit()
+        val transaction : FragmentTransaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.rootFragment, fragment)
+        transaction.commit()
     }
-
-    override fun onStart() {
-        super.onStart()
-        getDataFromApi()
-    }
-
-    // get data from api
-    fun getDataFromApi(){
-        // define api service and implement its methods
-        ApiService.endpoint.getKegiatan()
-            .enqueue(object: Callback<HomeModel> {
-                override fun onResponse(call: Call<HomeModel>, response: Response<HomeModel>) {
-                    showKegiatanData(response.body()!!)
-                }
-
-                override fun onFailure(call: Call<HomeModel>, t: Throwable) {
-                    Log.d("MainActivity", t.toString())
-                }
-
-            })
-    }
-
-    fun showKegiatanData(data: HomeModel){
-        val status = data.status
-        val message = data.message
-        val results = data.data
-
-        Log.d("MainActivity", message)
-    }
+//
+//    override fun onStart() {
+//        super.onStart()
+//        getDataFromApi()
+//    }
+//
+//    // get data from api
+//    fun getDataFromApi(){
+//        // define api service and implement its methods
+//        ApiService.endpoint.getKegiatan()
+//            .enqueue(object: Callback<HomeModel> {
+//                override fun onResponse(call: Call<HomeModel>, response: Response<HomeModel>) {
+//                    showKegiatanData(response.body()!!)
+//                }
+//
+//                override fun onFailure(call: Call<HomeModel>, t: Throwable) {
+//                    Log.d("MainActivity", t.toString())
+//                }
+//
+//            })
+//    }
+//
+//    fun showKegiatanData(data: HomeModel){
+//        val status = data.status
+//        val message = data.message
+//        val results = data.data
+//
+//        Log.d("MainActivity", message)
+//    }
 }
