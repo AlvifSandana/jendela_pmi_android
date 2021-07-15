@@ -128,6 +128,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/profile_nama"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="KennisaDN"
@@ -164,6 +165,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/profile_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="yourmail@example.com"
@@ -200,6 +202,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/profile_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="********"
@@ -236,6 +239,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/profile_ttl"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="BWI, XX Januari XXXX"
@@ -272,6 +276,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/profile_alamat"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Jl. xxxxx, Kab. xxx"
@@ -308,6 +313,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/profile_status"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="AB - 12 Januari 2021"

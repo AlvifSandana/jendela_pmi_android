@@ -11,6 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.app.jendelapmi.models.HomeModel
 import com.app.jendelapmi.retrofit.ApiService
+import com.app.slider.PreferenceHelper.customPreference
+import com.app.slider.PreferenceHelper.password
+import com.app.slider.PreferenceHelper.userEmail
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
@@ -18,7 +21,6 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -43,11 +45,19 @@ class MainActivity : AppCompatActivity() {
      */
     private fun selectedMenu(item: MenuItem){
         item.isChecked = true
+        val prefs = customPreference(this, "userdata")
         when(item.itemId){
             R.id.homeMenu -> selectedFragment(HomeFragment.getInstance())
             R.id.UDDMenu -> selectedFragment(UDDFragment.getInstance())
             R.id.NotifikasiMenu -> selectedFragment(NotifikasiFragment.getInstance())
-            R.id.userMenu -> selectedFragment(ProfileFragment.getInstance())
+            // check if user has logged in or not
+            R.id.userMenu ->  if (prefs.userEmail == "" && prefs.password == "") {
+                // not logged in, set fragment to Login Fragment
+                selectedFragment(LoginFragment.getInstance())
+            } else {
+                // logged in, set fragment to ProfileFragment
+                selectedFragment(ProfileFragment.getInstance())
+            }
         }
     }
 
