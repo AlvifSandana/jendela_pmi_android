@@ -47,7 +47,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/logoapp"
-            android:layout_margin="55dp"
+            android:layout_margin="44dp"
             android:layout_centerHorizontal="true"
             android:contentDescription="logoapp" />
 
@@ -190,7 +190,7 @@
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:text="Masuk"
-                android:textColor="@color/elt_3"/>
+                android:textColor="@color/elt_6"/>
         </LinearLayout>
 
     </RelativeLayout>
