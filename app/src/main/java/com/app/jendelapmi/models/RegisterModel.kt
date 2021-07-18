@@ -6,4 +6,5 @@ data class RegisterModel(
     val password : String,
     val ttl: String,
     val alamat: String,
+    val golongan_darah: String
 )

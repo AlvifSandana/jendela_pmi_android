@@ -1,4 +1,4 @@
-package com.app.jendelapmi
+package com.app.jendelapmi.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,9 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.app.jendelapmi.R
 import com.app.jendelapmi.models.RegisterResponseModel
 import com.app.jendelapmi.retrofit.ApiService
-import com.app.slider.PreferenceHelper.customPreference
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

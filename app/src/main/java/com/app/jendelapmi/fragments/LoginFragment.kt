@@ -1,19 +1,18 @@
-package com.app.jendelapmi
+package com.app.jendelapmi.fragments
 
 import android.os.Bundle
-import android.text.Editable
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.app.jendelapmi.R
 import com.app.jendelapmi.models.LoginResponseModel
 import com.app.jendelapmi.retrofit.ApiService
 import com.app.slider.PreferenceHelper.address
 import com.app.slider.PreferenceHelper.api_token
 import com.app.slider.PreferenceHelper.customPreference
-import com.app.slider.PreferenceHelper.defaultPreference
 import com.app.slider.PreferenceHelper.fullname
 import com.app.slider.PreferenceHelper.id
 import com.app.slider.PreferenceHelper.password
@@ -57,9 +56,13 @@ class LoginFragment : Fragment() {
     }
 
     companion object {
+        // in companion object,
+        // all method can be called without
+        // creating an instance from specified class
         fun getInstance(): LoginFragment = LoginFragment()
     }
 
+    // login method
     private fun login(email: String, password: String){
         try {
             // define shared preference object

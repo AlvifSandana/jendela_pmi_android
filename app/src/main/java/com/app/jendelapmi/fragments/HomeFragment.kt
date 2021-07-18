@@ -1,17 +1,14 @@
-package com.app.jendelapmi
+package com.app.jendelapmi.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.viewbinding.ViewBinding
+import com.app.jendelapmi.R
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.android.synthetic.main.slide_item_container.*
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel
-import org.imaginativeworld.whynotimagecarousel.listener.CarouselListener
 import org.imaginativeworld.whynotimagecarousel.model.CarouselGravity
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 import org.imaginativeworld.whynotimagecarousel.model.CarouselType
@@ -58,7 +55,9 @@ class HomeFragment : Fragment() {
         carousel.carouselType = CarouselType.SHOWCASE
         carousel.scaleOnScroll = true
         carousel.carouselGravity = CarouselGravity.CENTER
-        carousel.imagePlaceholder = ContextCompat.getDrawable(requireContext(), R.drawable.ic_outline_image_24)
+        carousel.imagePlaceholder = ContextCompat.getDrawable(requireContext(),
+            R.drawable.ic_outline_image_24
+        )
 
         // set carousel data
         carousel.setData(list)

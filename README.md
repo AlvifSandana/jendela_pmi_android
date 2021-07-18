@@ -12,6 +12,7 @@ Fitur yang sedang dikerjakan:
 - [x] Fragment Login user xml styles
 - [x] Fragment Stok Darah xml styles
 - [x] Fragment Jadwal DD xml styles
+- [x] Fragment Edit profil
 
 #### Backend
 - [ ] Register new user

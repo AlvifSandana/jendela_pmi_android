@@ -2,23 +2,16 @@ package com.app.jendelapmi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import com.app.jendelapmi.models.HomeModel
-import com.app.jendelapmi.retrofit.ApiService
+import com.app.jendelapmi.fragments.*
 import com.app.slider.PreferenceHelper.customPreference
 import com.app.slider.PreferenceHelper.password
 import com.app.slider.PreferenceHelper.userEmail
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.fragment_home.*
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
