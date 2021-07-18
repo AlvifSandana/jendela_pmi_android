@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg"
     tools:context=".fragments.UDDFragment">
 
@@ -42,7 +43,7 @@
         android:id="@+id/logo"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="50dp"
         android:layout_centerHorizontal="true"
         android:src="@drawable/logoapp"
         android:layout_below="@id/gaya"
@@ -52,20 +53,41 @@
         android:id="@+id/lbl_explore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="10dp"
         android:layout_below="@id/logo"
-        android:text="EXPLORE UDD PMI KAB. BANYUWANGI"
+        android:text="@string/explore_udd_pmi_kab_banyuwangi"
         android:textStyle="bold"
         android:textColor="@color/main_1"/>
+
+    <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+        android:id="@+id/carousel"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="25dp"
+        android:layout_below="@id/lbl_explore"
+        app:imageScaleType="centerCrop"
+        app:carouselPadding="30dp" />
 
     <TextView
         android:id="@+id/lbl_more_info"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_below="@id/lbl_explore"
-        android:text="MORE INFO"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/carousel"
+        android:text="@string/more_info"
         android:textStyle="bold"
         android:textColor="@color/main_1"/>
+
+    <org.imaginativeworld.whynotimagecarousel.ImageCarousel
+        android:id="@+id/carousel2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginHorizontal="30dp"
+        android:layout_below="@id/lbl_more_info"
+        app:imageScaleType="centerCrop"
+        app:carouselPadding="30dp" />
 
 </RelativeLayout>

@@ -42,4 +42,17 @@ interface ApiEndpoint {
         @Field("ttl") ttl: String,
         @Field("golongan_darah") golongan_darah: String
     ): Call<RegisterResponseModel>
+
+    // update profile
+    @FormUrlEncoded
+    @PUT("pendonor/{user_id}")
+    fun updateProfile(
+        @Path("user_id") id: Int,
+        @Field("nama_pendonor") nama: String,
+        @Field("email") email: String,
+        @Field("password") password: String,
+        @Field("alamat") alamat: String,
+        @Field("ttl") ttl: String,
+        @Field("golongan_darah") golongan_darah: String
+    ): Call<UpdateProfileResponseModel>
 }

@@ -17,6 +17,7 @@ object PreferenceHelper {
     val USER_FULL_NAME = "FULLNAME"
     val USER_TTL = "TTL"
     val USER_ADDRESS = "ADDRESS"
+    val USER_GOL_DARAH = "GOLDARAH"
 
     fun defaultPreference(context: Context): SharedPreferences =
         PreferenceManager.getDefaultSharedPreferences(context)
@@ -111,12 +112,21 @@ object PreferenceHelper {
             }
         }
 
-    // user address getter setter
+    // user status getter setter
     var SharedPreferences.status
         get() = getString(USER_STATUS, "")
         set(value) {
             editMe {
                 it.putString(USER_STATUS, value)
+            }
+        }
+
+    // golongan darah getter setter
+    var SharedPreferences.golongan_darah
+        get() = getString(USER_GOL_DARAH, "")
+        set(value) {
+            editMe {
+                it.putString(USER_GOL_DARAH, value)
             }
         }
 

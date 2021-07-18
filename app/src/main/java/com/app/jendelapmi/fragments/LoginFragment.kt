@@ -80,14 +80,13 @@ class LoginFragment : Fragment() {
                             Log.d("RESPONSE", response.toString())
                             val resdata = response.body()?.data
                             if (response.body()?.status == "success"){
-                                prefs.id = resdata?.get(0)?.id!!
-                                prefs.fullname = resdata.get(0).nama_pendonor
-                                prefs.userEmail = resdata.get(0).email
-                                prefs.password = resdata.get(0).password
-                                prefs.address = resdata.get(0).alamat
-                                prefs.api_token = resdata.get(0).api_token
-                                prefs.status = resdata.get(0).status
-
+                                prefs.id = resdata?.get(0)?.id!!.toInt()
+                                prefs.fullname = resdata[0].nama_pendonor
+                                prefs.userEmail = resdata[0].email
+                                prefs.password = resdata[0].password
+                                prefs.address = resdata[0].alamat
+                                prefs.api_token = resdata[0].api_token
+                                prefs.status = resdata[0].status
                                 Toast.makeText(activity, "Berhasil Login!", Toast.LENGTH_SHORT).show()
                             } else {
                                 Toast.makeText(activity, response.body()?.message, Toast.LENGTH_SHORT).show()
