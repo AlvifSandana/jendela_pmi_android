@@ -29,4 +29,12 @@
     <string name="txt_btn_daftar">Daftar</string>
     <string name="txt_divider_atau">Atau</string>
     <string name="txt_btn_masuk">Masuk</string>
+    <string name="kata_sandi_baru">Kata Sandi Baru</string>
+    <string name="jadwal_mobil_pelayanan_untuk_para_pendonor">Jadwal Mobil Pelayanan untuk para Pendonor</string>
+    <string name="jadwal_mobil_donor">JADWAL MOBIL DONOR</string>
+    <string name="back">back</string>
+    <string name="tanggal">Tanggal</string>
+    <string name="jam">Jam</string>
+    <string name="instansi">Instansi</string>
+    <string name="tempat">Tempat</string>
 </resources>

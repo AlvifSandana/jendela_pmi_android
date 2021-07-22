@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import com.app.jendelapmi.R
 import com.app.jendelapmi.models.StokDarahModel
@@ -19,6 +20,8 @@ import retrofit2.Response
 
 class StokDarahFragment : Fragment() {
 
+    lateinit var button_back: ImageView
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -29,6 +32,10 @@ class StokDarahFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        button_back = back_btn
+        button_back.setOnClickListener {
+            activity?.onBackPressed()
+        }
         getStokDarah()
     }
 

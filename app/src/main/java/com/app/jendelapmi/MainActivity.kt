@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
      *
      * handle when user checked or clicked menu item
      * and show fragment.
+     *
      */
     private fun selectedMenu(item: MenuItem){
         item.isChecked = true
@@ -65,33 +66,4 @@ class MainActivity : AppCompatActivity() {
         transaction.replace(R.id.rootFragment, fragment)
         transaction.commit()
     }
-//
-//    override fun onStart() {
-//        super.onStart()
-//        getDataFromApi()
-//    }
-//
-//    // get data from api
-//    fun getDataFromApi(){
-//        // define api service and implement its methods
-//        ApiService.endpoint.getKegiatan()
-//            .enqueue(object: Callback<HomeModel> {
-//                override fun onResponse(call: Call<HomeModel>, response: Response<HomeModel>) {
-//                    showKegiatanData(response.body()!!)
-//                }
-//
-//                override fun onFailure(call: Call<HomeModel>, t: Throwable) {
-//                    Log.d("MainActivity", t.toString())
-//                }
-//
-//            })
-//    }
-//
-//    fun showKegiatanData(data: HomeModel){
-//        val status = data.status
-//        val message = data.message
-//        val results = data.data
-//
-//        Log.d("MainActivity", message)
-//    }
 }

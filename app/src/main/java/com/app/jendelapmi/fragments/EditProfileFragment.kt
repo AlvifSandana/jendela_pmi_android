@@ -19,6 +19,8 @@ import com.app.slider.PreferenceHelper.id
 import com.app.slider.PreferenceHelper.password
 import com.app.slider.PreferenceHelper.status
 import com.app.slider.PreferenceHelper.userEmail
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.textfield.TextInputLayout
 import kotlinx.android.synthetic.main.fragment_edit_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.*
 import retrofit2.Call
@@ -27,12 +29,14 @@ import retrofit2.Response
 
 class EditProfileFragment : Fragment() {
 
-    private val fullname = txt_edit_fullname.editText
-    private val email = txt_edit_email.editText
-    private val password = txt_edit_password.editText
-    private val alamat = txt_edit_alamat.editText
-    private val ttl = txt_edit_ttl.editText
-    private val golongan_darah = txt_edit_golongan_darah.editText
+    lateinit var fullname: TextInputLayout
+    lateinit var email: TextInputLayout
+    lateinit var password: TextInputLayout
+    lateinit var alamat: TextInputLayout
+    lateinit var ttl: TextInputLayout
+    lateinit var golongan_darah: TextInputLayout
+    lateinit var button_simpan: MaterialButton
+    lateinit var button_cancel: MaterialButton
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,9 +49,30 @@ class EditProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // define field from xml
+        fullname = txt_edit_fullname
+        email = txt_edit_email
+        password = txt_edit_password
+        alamat = txt_edit_alamat
+        ttl = txt_edit_ttl
+        golongan_darah = txt_edit_golongan_darah
+        button_simpan = btn_edit_simpan
+        button_cancel = btn_edit_batal
 
-        btn_edit_profil.setOnClickListener {
+        // shared preference instance
+        val prefs = customPreference(requireContext(), "userdata")
+
+        // set text value
+        fullname.editText?.setText(prefs.fullname)
+        email.editText?.setText(prefs.userEmail)
+        alamat.editText?.setText(prefs.address)
+        ttl.editText?.setText(prefs.TTL)
+        golongan_darah.editText?.setText(prefs.golongan_darah)
+
+        button_simpan.setOnClickListener {
             updateProfile()
+        }
+        button_cancel.setOnClickListener {
+            activity?.onBackPressed()
         }
     }
 
@@ -55,9 +80,9 @@ class EditProfileFragment : Fragment() {
         try {
             val prefs = customPreference(requireContext(), "userdata")
             ApiService.endpoint.updateProfile(
-                prefs.id, fullname?.text.toString(), email?.text.toString(),
-                password?.text.toString(), alamat?.text.toString(), ttl?.text.toString(),
-                golongan_darah?.text.toString()
+                prefs.id, fullname.editText?.text.toString(), email.editText?.text.toString(),
+                password.editText?.text.toString(), alamat.editText?.text.toString(), ttl.editText?.text.toString(),
+                golongan_darah.editText?.text.toString()
             ).enqueue(object: Callback<UpdateProfileResponseModel> {
                 override fun onResponse(
                     call: Call<UpdateProfileResponseModel>,

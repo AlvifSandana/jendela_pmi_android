@@ -10,10 +10,12 @@ import android.widget.Toast
 import com.app.jendelapmi.R
 import com.app.jendelapmi.models.LoginResponseModel
 import com.app.jendelapmi.retrofit.ApiService
+import com.app.slider.PreferenceHelper.TTL
 import com.app.slider.PreferenceHelper.address
 import com.app.slider.PreferenceHelper.api_token
 import com.app.slider.PreferenceHelper.customPreference
 import com.app.slider.PreferenceHelper.fullname
+import com.app.slider.PreferenceHelper.golongan_darah
 import com.app.slider.PreferenceHelper.id
 import com.app.slider.PreferenceHelper.password
 import com.app.slider.PreferenceHelper.status
@@ -87,6 +89,8 @@ class LoginFragment : Fragment() {
                                 prefs.address = resdata[0].alamat
                                 prefs.api_token = resdata[0].api_token
                                 prefs.status = resdata[0].status
+                                prefs.TTL = resdata[0].ttl
+                                prefs.golongan_darah = resdata[0].golongan_darah
                                 Toast.makeText(activity, "Berhasil Login!", Toast.LENGTH_SHORT).show()
                             } else {
                                 Toast.makeText(activity, response.body()?.message, Toast.LENGTH_SHORT).show()

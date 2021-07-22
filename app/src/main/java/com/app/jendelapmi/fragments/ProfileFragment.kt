@@ -50,15 +50,15 @@ class ProfileFragment : Fragment() {
 
         // set onClickListener for btn_edit_profile
         btn_edit_profile.setOnClickListener {
-            gotoFragment(EditProfileFragment.getInstance())
+            gotoFragment(EditProfileFragment())
         }
     }
 
     private fun gotoFragment(fragment: Fragment) {
-        val transaction = activity?.supportFragmentManager?.beginTransaction()
-        transaction?.replace(R.id.rootFragment, fragment)
-        transaction?.disallowAddToBackStack()
-        transaction?.commit()
+        val transaction: FragmentTransaction = activity?.supportFragmentManager!!.beginTransaction()
+        transaction.replace(R.id.rootFragment, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 
     companion object {

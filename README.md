@@ -15,7 +15,7 @@ Fitur yang sedang dikerjakan:
 - [x] Fragment Edit profil
 
 #### Backend
-- [ ] Register new user
+- [x] Register new user
 - [x] Login new user
 - [ ] show notifikasi
 - [x] show Stok darah in table

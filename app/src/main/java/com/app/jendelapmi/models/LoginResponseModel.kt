@@ -12,6 +12,8 @@ data class LoginResponseModel(
         val password: String,
         val alamat: String,
         val telepon: String,
+        val ttl: String,
+        val golongan_darah: String,
         val status: String,
         val api_token: String,
         val roles_id: Int,

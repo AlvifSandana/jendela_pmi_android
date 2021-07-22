@@ -84,11 +84,20 @@ class HomeFragment : Fragment() {
                 "Silahkan login untuk melanjutkan."
             )
         }
+        button_mobile_unit.setOnClickListener {
+            val pref = customPreference(requireContext(), "userdata")
+            if (pref.api_token != "") gotoFragment(JadwalMUFragment()) else AlertHelper.createAlert(
+                requireContext(),
+                "Info",
+                "Silahkan login untuk melanjutkan."
+            )
+        }
     }
 
     private fun gotoFragment(fragment: Fragment) {
         val transaction: FragmentTransaction = activity?.supportFragmentManager!!.beginTransaction()
         transaction.replace(R.id.rootFragment, fragment)
+        transaction.addToBackStack(null)
         transaction.commit()
     }
 
