@@ -6,9 +6,15 @@ data class StokDarahModel(
     val data: ArrayList<Data>
     ){
     data class Data(
-        val id: Int,
         val produk: String,
-        val jenis_darah: String,
-        val jumlah: Int,
-    )
+        val stok : Stok
+    ){
+      data class Stok(
+          val A: Int,
+          val B: Int,
+          val AB: Int,
+          val O: Int,
+          val Total: Int
+      )
+    }
 }

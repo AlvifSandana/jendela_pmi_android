@@ -18,6 +18,6 @@ Fitur yang sedang dikerjakan:
 - [ ] Register new user
 - [x] Login new user
 - [ ] show notifikasi
-- [ ] show Stok darah in table
+- [x] show Stok darah in table
 - [ ] remind new notifikasi
 - [x] retrieve data from restAPI

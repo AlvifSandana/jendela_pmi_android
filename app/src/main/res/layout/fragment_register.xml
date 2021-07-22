@@ -49,7 +49,7 @@
             android:src="@drawable/logoapp"
             android:layout_margin="44dp"
             android:layout_centerHorizontal="true"
-            android:contentDescription="logoapp" />
+            android:contentDescription="@string/logoapp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/txt_reg_nama"
@@ -62,7 +62,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Nama"/>
+                android:inputType="textFilter|textPersonName"
+                android:hint="@string/hint_nama"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -76,7 +77,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Tempat, Tanggal Lahir"/>
+                android:inputType="textFilter"
+                android:hint="@string/hint_tempat_tanggal_lahir"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -90,7 +92,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Alamat"/>
+                android:inputType="textFilter"
+                android:hint="@string/hint_alamat"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -104,7 +107,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Gol. Darah"/>
+                android:inputType="textFilter"
+                android:hint="@string/hint_gol_darah"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -118,8 +122,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textEmailAddress"
-                android:hint="Email"/>
+                android:inputType="textFilter|textEmailAddress"
+                android:hint="@string/hint_email"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -134,8 +138,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:hint="Password"/>
+                android:inputType="textFilter|textPassword"
+                android:hint="@string/hint_password"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
@@ -152,7 +156,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:elevation="10dp"
-                android:text="Daftar"
+                android:text="@string/txt_btn_daftar"
                 android:textColor="@color/black"
                 android:backgroundTint="@color/elt_3"/>
 
@@ -173,7 +177,7 @@
                     android:layout_weight="0.3"
                     android:layout_width="0dip"
                     android:layout_height="wrap_content"
-                    android:text="Atau"
+                    android:text="@string/txt_divider_atau"
                     android:textColor="@color/black"
                     android:gravity="center"/>
 
@@ -186,10 +190,11 @@
             </LinearLayout>
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/Widget.MaterialComponents.Button.TextButton"
-                android:text="Masuk"
+                android:text="@string/txt_btn_masuk"
                 android:textColor="@color/elt_6"/>
         </LinearLayout>
 
