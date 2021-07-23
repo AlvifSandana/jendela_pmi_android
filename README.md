@@ -19,5 +19,6 @@ Fitur yang sedang dikerjakan:
 - [x] Login new user
 - [ ] show notifikasi
 - [x] show Stok darah in table
+- [x] show Jadwal Mobil Unit
 - [ ] remind new notifikasi
 - [x] retrieve data from restAPI

@@ -12,7 +12,7 @@ interface ApiEndpoint {
     // get stok darah
     @GET("stokdarah")
     fun getStokDarah(
-        @Header("api_token") api_token: String,
+        @Header("api-token") api_token: String,
         @Header("role") role: String
     ) : Call<StokDarahModel>
 

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".fragments.JadwalMUFragment">
 
     <LinearLayout
@@ -37,6 +38,7 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:id="@+id/parent_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -45,7 +47,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="17dp"
             android:contentDescription="@string/back"
             android:src="@drawable/back_button" />
 
@@ -54,7 +56,7 @@
             android:layout_width="300dp"
             android:layout_height="45dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="10dp"
             android:background="@color/main_1"
             android:gravity="center"
             android:text="@string/jadwal_mobil_donor"
@@ -68,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/heading_stokdarah"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="5dp"
             android:background="@color/main_8"
             android:gravity="center_horizontal"
             android:orientation="horizontal">
@@ -85,7 +87,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/group_jadwal"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="5dp">
 
             <TextView
                 android:layout_width="120dp"
@@ -143,6 +145,13 @@
                 android:textColor="@color/white"
                 android:textStyle="bold" />
         </TableRow>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/row_container_data"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/row_th"
+            tools:listitem="@layout/item_table"/>
+
     </RelativeLayout>
 
-</FrameLayout>
+</LinearLayout>
