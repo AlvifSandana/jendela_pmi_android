@@ -51,6 +51,7 @@ class StokDarahFragment : Fragment() {
                         if (response.body()?.status == "success") {
                             Log.d("stok", response.body()?.data.toString())
                             val data = response.body()?.data
+                            var total = 0
                             // WB
                             wb_a.text = data?.get(0)?.stok?.A.toString()
                             wb_b.text = data?.get(0)?.stok?.B.toString()
@@ -63,19 +64,23 @@ class StokDarahFragment : Fragment() {
                             prc_ab.text = data?.get(1)?.stok?.AB.toString()
                             prc_o.text = data?.get(1)?.stok?.O.toString()
                             prc_total.text = data?.get(1)?.stok?.Total.toString()
-                            // WB
+                            // TC
                             tc_a.text = data?.get(2)?.stok?.A.toString()
                             tc_b.text = data?.get(2)?.stok?.B.toString()
                             tc_ab.text = data?.get(2)?.stok?.AB.toString()
                             tc_o.text = data?.get(2)?.stok?.O.toString()
                             tc_total.text = data?.get(2)?.stok?.Total.toString()
-                            // WB
+                            // FFP
                             ffp_a.text = data?.get(3)?.stok?.A.toString()
                             ffp_b.text = data?.get(3)?.stok?.B.toString()
                             ffp_ab.text = data?.get(3)?.stok?.AB.toString()
                             ffp_o.text = data?.get(3)?.stok?.O.toString()
                             ffp_total.text = data?.get(3)?.stok?.Total.toString()
-
+                            // total stok
+                            for (item in data!!) {
+                                total += item.stok.Total
+                            }
+                            txt_total_stokdarah.text = total.toString()
                         }
                     }
 
