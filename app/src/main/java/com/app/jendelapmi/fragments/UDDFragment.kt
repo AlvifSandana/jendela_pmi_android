@@ -19,6 +19,7 @@ import kotlin.math.exp
 class UDDFragment : Fragment() {
 
     lateinit var exploreUDDCarousel: ViewPager2
+    lateinit var moreinfoUDDCarousel: ViewPager2
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -48,6 +49,7 @@ class UDDFragment : Fragment() {
             CarouselExploreUDDModel("https://images.unsplash.com/photo-1626897844971-aef92643f056?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=375&q=80")
         )
 
+        // Carousel
         exploreUDDCarousel = vp2
         exploreUDDCarousel.adapter = RVExploreUDDAdapter(images)
         exploreUDDCarousel.clipToPadding = false
@@ -55,14 +57,25 @@ class UDDFragment : Fragment() {
         exploreUDDCarousel.offscreenPageLimit = 3
         exploreUDDCarousel.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
 
+        // Carousel
+        moreinfoUDDCarousel = vp2_moreinfo
+        moreinfoUDDCarousel.adapter = RVExploreUDDAdapter(images)
+        moreinfoUDDCarousel.clipToPadding = false
+        moreinfoUDDCarousel.clipChildren = false
+        moreinfoUDDCarousel.offscreenPageLimit = 3
+        moreinfoUDDCarousel.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+
+        // composite page transformer
         val compositePageTransformer = CompositePageTransformer()
-        compositePageTransformer.addTransformer(MarginPageTransformer(30))
+        compositePageTransformer.addTransformer(MarginPageTransformer(10))
         compositePageTransformer.addTransformer { page, position ->
             val r: Float = 1 - abs(position)
             page.scaleY = 0.85f + r * 0.15f
         }
 
+        // set carousel page transformer
         exploreUDDCarousel.setPageTransformer(compositePageTransformer)
+        moreinfoUDDCarousel.setPageTransformer(compositePageTransformer)
     }
 
     companion object {

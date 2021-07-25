@@ -11,7 +11,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.carousel_item.view.*
 
 class RVExploreUDDAdapter(private val imageURL: ArrayList<CarouselExploreUDDModel>) :
-    RecyclerView.Adapter<ExploreUDDViewHolder>() {
+    RecyclerView.Adapter<RVExploreUDDAdapter.ExploreUDDViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExploreUDDViewHolder {
         val itemView =
             LayoutInflater.from(parent.context).inflate(R.layout.carousel_item, parent, false)
@@ -20,12 +20,14 @@ class RVExploreUDDAdapter(private val imageURL: ArrayList<CarouselExploreUDDMode
 
     override fun onBindViewHolder(holder: ExploreUDDViewHolder, position: Int) {
         val currentItem = imageURL[position]
-        Picasso.get().load(currentItem.url).into(holder.imageContainer)
+        Picasso.get().load(currentItem.url).resize(300, 300).centerCrop().into(holder.imageContainer)
     }
 
     override fun getItemCount(): Int = imageURL.size
+
+    class ExploreUDDViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val imageContainer: RoundedImageView = itemView.image_container
+    }
 }
 
-class ExploreUDDViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-    val imageContainer: RoundedImageView = itemView.image_container
-}
+
