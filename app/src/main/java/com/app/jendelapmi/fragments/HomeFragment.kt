@@ -1,15 +1,22 @@
 package com.app.jendelapmi.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.app.jendelapmi.R
+import com.app.jendelapmi.adapter.RVKegiatanPMI
 import com.app.jendelapmi.helpers.AlertHelper
+import com.app.jendelapmi.models.HomeModel
+import com.app.jendelapmi.retrofit.ApiService
 import com.app.slider.PreferenceHelper.api_token
 import com.app.slider.PreferenceHelper.customPreference
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -17,11 +24,15 @@ import org.imaginativeworld.whynotimagecarousel.ImageCarousel
 import org.imaginativeworld.whynotimagecarousel.model.CarouselGravity
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
 import org.imaginativeworld.whynotimagecarousel.model.CarouselType
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class HomeFragment : Fragment() {
-    lateinit var button_stok_darah: Button
-    lateinit var button_mobile_unit: Button
+    private lateinit var button_stok_darah: Button
+    private lateinit var button_mobile_unit: Button
+    private lateinit var rvKegiatanPMI: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -75,6 +86,10 @@ class HomeFragment : Fragment() {
         // set carousel data
         carousel.setData(list)
 
+        // define rv Kegiatan PMI
+        rvKegiatanPMI = rv_home_kegiatan_pmi
+        getKegiatanPMI()
+
         // button listener
         button_stok_darah.setOnClickListener {
             val pref = customPreference(requireContext(), "userdata")
@@ -91,6 +106,36 @@ class HomeFragment : Fragment() {
                 "Info",
                 "Silahkan login untuk melanjutkan."
             )
+        }
+    }
+
+    private fun getKegiatanPMI() {
+        try {
+            ApiService.endpoint.getKegiatan()
+                .enqueue(object : Callback<HomeModel> {
+                    override fun onResponse(call: Call<HomeModel>, response: Response<HomeModel>) {
+                        val status = response.body()?.status
+                        val message = response.body()?.message
+                        val data = response.body()?.data
+                        if (status == "success") {
+                            if (data != null) {
+                                Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
+                                // set rv adapter and layout manager
+                                rvKegiatanPMI.adapter = RVKegiatanPMI(data)
+                                rvKegiatanPMI.layoutManager = LinearLayoutManager(requireContext())
+                            }
+                        }
+                    }
+
+                    override fun onFailure(call: Call<HomeModel>, t: Throwable) {
+                        Log.d("getKegiatanPMI", t.toString())
+                        Toast.makeText(requireContext(), t.toString(), Toast.LENGTH_LONG).show()
+                    }
+
+                })
+        } catch (e: Exception) {
+            Log.d("getKegiatanPMI", e.toString())
+            Toast.makeText(requireContext(), e.toString(), Toast.LENGTH_LONG).show()
         }
     }
 

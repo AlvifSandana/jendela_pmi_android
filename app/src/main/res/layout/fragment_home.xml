@@ -67,7 +67,7 @@
         <org.imaginativeworld.whynotimagecarousel.ImageCarousel
             android:id="@+id/carousel"
             android:layout_width="match_parent"
-            android:layout_height="240dp"
+            android:layout_height="200dp"
             android:layout_marginHorizontal="30dp"
             android:layout_below="@id/lbl_more_info"
             app:imageScaleType="centerCrop"
@@ -95,6 +95,28 @@
                     android:layout_gravity="end"/>
             </TableRow>
         </TableLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/kegiatan_container_rv"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_below="@id/container_schedule"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginHorizontal="30dp"
+            app:cardBackgroundColor="@color/main_6_transparan"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="0dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_home_kegiatan_pmi"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10dp"
+                android:background="@color/main_6_transparan"
+                tools:listitem="@layout/item_kegiatan"/>
+        </com.google.android.material.card.MaterialCardView>
+
     </RelativeLayout>
 
     <RelativeLayout
