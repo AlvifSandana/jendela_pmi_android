@@ -1,7 +1,6 @@
 package com.app.jendelapmi.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -19,11 +18,11 @@ import kotlinx.android.synthetic.main.fragment_jadwal_m_u.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import java.io.IOException
+import java.net.SocketException
 
 class JadwalMUFragment : Fragment() {
 
-    lateinit var button_back: ImageView
+    lateinit var buttonBack: ImageView
     lateinit var rvTable: RecyclerView
 
     override fun onCreateView(
@@ -37,10 +36,10 @@ class JadwalMUFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         // define view component
-        button_back = back_btn
+        buttonBack = back_btn
         rvTable = row_container_data
         // button listener
-        button_back.setOnClickListener {
+        buttonBack.setOnClickListener {
             activity?.onBackPressed()
         }
         getDataJadwalMobilUnit()
@@ -72,13 +71,12 @@ class JadwalMUFragment : Fragment() {
                     }
 
                     override fun onFailure(call: Call<MobileUnitModel>, t: Throwable) {
-                        Log.d("debug_jadwal_MU", t.toString())
                         Toast.makeText(requireContext(), t.toString(), Toast.LENGTH_LONG).show()
                     }
 
                 })
-        } catch (e: IOException) {
-            Toast.makeText(requireContext(), e.toString(), Toast.LENGTH_LONG).show()
+        } catch (e: SocketException) {
+            Toast.makeText(requireContext(), "Connection failed!", Toast.LENGTH_LONG).show()
         } catch (e: Exception) {
             Toast.makeText(requireContext(), e.toString(), Toast.LENGTH_LONG).show()
         }

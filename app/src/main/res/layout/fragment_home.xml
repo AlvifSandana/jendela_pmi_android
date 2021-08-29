@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,140 +7,138 @@
     android:background="@drawable/bg"
     tools:context=".fragments.HomeFragment">
 
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <LinearLayout
-            android:id="@+id/gaya"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:orientation="horizontal">
+            android:layout_height="match_parent">
 
-            <View
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="4"
-                android:background="@color/main_1" />
+            <LinearLayout
+                android:id="@+id/gaya"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
 
-            <View
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="2.2"
-                android:background="@color/main_2" />
+                <View
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:background="@color/main_1" />
 
-            <View
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="1.6"
-                android:background="@color/main_3" />
+                <View
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2.2"
+                    android:background="@color/main_2" />
 
-            <View
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_weight="0.8"
-                android:background="@color/main_4" />
-        </LinearLayout>
+                <View
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.6"
+                    android:background="@color/main_3" />
 
-        <ImageView
-            android:id="@+id/img_mobil"
-            android:layout_width="400dp"
-            android:layout_height="200dp"
-            android:layout_marginTop="10dp"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/gaya"
-            android:src="@drawable/mobil_dd"
-            android:contentDescription="@string/mobil_udd"/>
+                <View
+                    android:layout_width="0dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.8"
+                    android:background="@color/main_4" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/lbl_more_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/img_mobil"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="5dp"
-            android:layout_marginHorizontal="30dp"
-            android:text="@string/more_info_pmi"
-            android:textStyle="bold"
-            android:textColor="@color/main_1"/>
+            <ImageView
+                android:id="@+id/img_mobil"
+                android:layout_width="400dp"
+                android:layout_height="200dp"
+                android:layout_marginTop="10dp"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/gaya"
+                android:src="@drawable/mobil_dd"
+                android:contentDescription="@string/mobil_udd"/>
 
-        <org.imaginativeworld.whynotimagecarousel.ImageCarousel
-            android:id="@+id/carousel"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginHorizontal="30dp"
-            android:layout_below="@id/lbl_more_info"
-            app:imageScaleType="centerCrop"
-            app:carouselPadding="30dp" />
+            <TextView
+                android:id="@+id/lbl_more_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/img_mobil"
+                android:layout_marginTop="50dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginHorizontal="30dp"
+                android:text="@string/more_info_pmi"
+                android:textStyle="bold"
+                android:textColor="@color/main_1"/>
 
-        <TableLayout
-            android:id="@+id/container_schedule"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:paddingHorizontal="30dp"
-            android:layout_below="@id/carousel"
-            android:stretchColumns="1">
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/carouselHome"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_below="@id/lbl_more_info"
+                android:layout_marginHorizontal="30dp"
+                android:paddingStart="60dp"
+                android:paddingEnd="60dp" />
 
-            <TableRow>
-                <TextView
-                    android:text="@string/schedule"
-                    android:textStyle="bold"
-                    android:textColor="@color/main_1"
-                    android:layout_gravity="start"/>
-                <TextView
-                    android:text="@string/lihat_lainnya"
-                    android:textStyle="bold"
-                    android:textColor="@color/main_1"
-                    android:layout_gravity="end"/>
-            </TableRow>
-        </TableLayout>
+            <TableLayout
+                android:id="@+id/container_schedule"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingHorizontal="30dp"
+                android:layout_below="@id/carouselHome"
+                android:stretchColumns="1">
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/kegiatan_container_rv"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_below="@id/container_schedule"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginHorizontal="30dp"
-            app:cardBackgroundColor="@color/main_6_transparan"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="0dp">
+                <TableRow>
+                    <TextView
+                        android:text="@string/schedule"
+                        android:textStyle="bold"
+                        android:textColor="@color/main_1"
+                        android:layout_gravity="start"/>
+                    <TextView
+                        android:id="@+id/lihat_lainnya"
+                        android:text="@string/lihat_lainnya"
+                        android:textStyle="bold"
+                        android:textColor="@color/main_1"
+                        android:layout_gravity="end"/>
+                </TableRow>
+            </TableLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_home_kegiatan_pmi"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="10dp"
+                android:layout_height="150dp"
+                android:layout_below="@id/container_schedule"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
                 android:background="@color/main_6_transparan"
-                tools:listitem="@layout/item_kegiatan"/>
-        </com.google.android.material.card.MaterialCardView>
+                android:padding="10dp"
+                tools:listitem="@layout/item_kegiatan" />
 
-    </RelativeLayout>
+        </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="230dp"
-        android:layout_gravity="center_horizontal"
-        android:elevation="10dp"
-        tools:targetApi="lollipop">
-
-        <Button
-            android:id="@+id/btn_stok_darah"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="3dp"
-            android:text="STOK DARAH\nUDD PMI"/>
+            android:layout_marginTop="230dp"
+            android:layout_gravity="center_horizontal"
+            android:elevation="10dp"
+            tools:targetApi="lollipop">
 
-        <Button
-            android:id="@+id/btn_mobile_unit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/btn_stok_darah"
-            android:layout_toEndOf="@id/btn_stok_darah"
-            android:text="MOBILE UNIT\nUDD PMI" />
-    </RelativeLayout>
+            <Button
+                android:id="@+id/btn_stok_darah"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
+                android:text="STOK DARAH\nUDD PMI"/>
 
-</FrameLayout>
+            <Button
+                android:id="@+id/btn_mobile_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/btn_stok_darah"
+                android:layout_toEndOf="@id/btn_stok_darah"
+                android:text="MOBILE UNIT\nUDD PMI" />
+        </RelativeLayout>
+
+    </FrameLayout>
+</ScrollView>

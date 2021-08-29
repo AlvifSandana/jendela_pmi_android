@@ -1,147 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
-
     tools:context=".fragments.NotifikasiFragment">
 
-    <LinearLayout
-        android:id="@+id/gaya"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal">
-
-        <View
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="4"
-            android:background="@color/main_1" />
-
-        <View
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="2.2"
-            android:background="@color/main_2" />
-
-        <View
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="1.6"
-            android:background="@color/main_3" />
-
-        <View
-            android:layout_width="0dip"
-            android:layout_height="match_parent"
-            android:layout_weight="0.8"
-            android:background="@color/main_4" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/txt_head_notif"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingStart="15dp"
-        android:paddingLeft="15dp"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        android:shadowColor="@color/grey"
-        android:shadowDx="1"
-        android:shadowDy="10"
-        android:shadowRadius="5"
-        android:text="NOTIFIKASI"
-        android:textColor="@color/black"
-        android:textSize="12pt"
-        android:textStyle="bold"
-        android:layout_below="@id/gaya"/>
-
-    <View
-        android:id="@+id/linebreak"
-        android:layout_width="match_parent"
-        android:layout_height="5dp"
-        android:layout_below="@id/txt_head_notif"
-        android:background="@color/black" />
-
-
-    <TextView
-        android:id="@+id/jadwal_big"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_below="@id/linebreak"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/shape_bg_textview"
-        android:gravity="center"
-        android:text="XX Juni 2021"
-        android:textColor="@color/black"
-        android:textSize="12pt"
-        android:textStyle="bold" />
-
-    <!--  Tanggal terakhir donor, jadwal donor rutin, lokasi donor terdekat -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/jadwal_big"
-        android:padding="15dp">
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/gaya"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:background="@color/main_1" />
+
+            <View
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="2.2"
+                android:background="@color/main_2" />
+
+            <View
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.6"
+                android:background="@color/main_3" />
+
+            <View
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_weight="0.8"
+                android:background="@color/main_4" />
+        </LinearLayout>
 
         <TextView
-            android:id="@+id/lbl_tanngal_terakhir_donor"
-            android:layout_width="wrap_content"
+            android:id="@+id/txt_head_notif"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tanggal Terakhir Donor"
-            android:textSize="8pt"
+            android:paddingStart="15dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:shadowColor="@color/grey"
+            android:shadowDx="1"
+            android:shadowDy="10"
+            android:shadowRadius="5"
+            android:text="NOTIFIKASI"
             android:textColor="@color/black"
+            android:textSize="12pt"
+            android:textStyle="bold"
+            android:layout_below="@id/gaya"/>
+
+        <View
+            android:id="@+id/linebreak"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:layout_below="@id/txt_head_notif"
+            android:background="@color/black" />
+
+
+        <TextView
+            android:id="@+id/jadwal_big"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_below="@id/linebreak"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/shape_bg_textview"
+            android:gravity="center"
+            android:text="XX Juni 2021"
+            android:textColor="@color/black"
+            android:textSize="12pt"
             android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/txt_tanggal_terakhir_donor"
-            android:layout_width="wrap_content"
+        <!--  Tanggal terakhir donor, jadwal donor rutin, lokasi donor terdekat -->
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/lbl_tanngal_terakhir_donor"
-            android:text="20 Desember 2020"
-            android:textSize="8pt"/>
+            android:layout_below="@id/jadwal_big"
+            android:padding="15dp">
 
-        <TextView
-            android:id="@+id/lbl_jadwal_donor_rutin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txt_tanggal_terakhir_donor"
-            android:layout_marginTop="15dp"
-            android:text="Jadwal Donor Rutin"
-            android:textSize="8pt"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/lbl_tanngal_terakhir_donor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tanggal Terakhir Donor"
+                android:textSize="8pt"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/txt_jadwal_donor_rutin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/lbl_jadwal_donor_rutin"
-            android:text="21 Maret 2021"
-            android:textSize="8pt"/>
+            <TextView
+                android:id="@+id/txt_tanggal_terakhir_donor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lbl_tanngal_terakhir_donor"
+                android:text="20 Desember 2020"
+                android:textSize="8pt" />
 
-        <TextView
-            android:id="@+id/lbl_lokasi_donor_terdekat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txt_jadwal_donor_rutin"
-            android:layout_marginTop="15dp"
-            android:text="Lokasi Donor Terdekat"
-            android:textSize="8pt"
-            android:textColor="@color/black"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/lbl_jadwal_donor_rutin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_tanggal_terakhir_donor"
+                android:layout_marginTop="15dp"
+                android:text="Jadwal Donor Rutin"
+                android:textSize="8pt"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/txt_lokasi_donor_terdekat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/lbl_lokasi_donor_terdekat"
-            android:text="SMAN 1 Rogojampi"
-            android:textSize="8pt"/>
+            <TextView
+                android:id="@+id/txt_jadwal_donor_rutin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lbl_jadwal_donor_rutin"
+                android:text="21 Maret 2021"
+                android:textSize="8pt"/>
 
+            <TextView
+                android:id="@+id/lbl_lokasi_donor_terdekat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_jadwal_donor_rutin"
+                android:layout_marginTop="15dp"
+                android:text="Lokasi Donor Terdekat"
+                android:textSize="8pt"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_lokasi_donor_terdekat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/lbl_lokasi_donor_terdekat"
+                android:text="SMAN 1 Rogojampi"
+                android:textSize="8pt"/>
+        </RelativeLayout>
     </RelativeLayout>
-</RelativeLayout>
+</ScrollView>

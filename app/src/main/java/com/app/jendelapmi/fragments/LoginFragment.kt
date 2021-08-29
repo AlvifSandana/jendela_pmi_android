@@ -58,9 +58,6 @@ class LoginFragment : Fragment() {
     }
 
     companion object {
-        // in companion object,
-        // all method can be called without
-        // creating an instance from specified class
         fun getInstance(): LoginFragment = LoginFragment()
     }
 

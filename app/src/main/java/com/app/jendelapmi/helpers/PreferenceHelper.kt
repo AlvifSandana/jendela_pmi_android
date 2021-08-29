@@ -18,6 +18,8 @@ object PreferenceHelper {
     val USER_TTL = "TTL"
     val USER_ADDRESS = "ADDRESS"
     val USER_GOL_DARAH = "GOLDARAH"
+    val USER_LOKASI_DONOR = "LOKASI_DONOR"
+    val USER_TANGGAL_MU = "TANGGAL_MU"
 
     fun defaultPreference(context: Context): SharedPreferences =
         PreferenceManager.getDefaultSharedPreferences(context)
@@ -127,6 +129,24 @@ object PreferenceHelper {
         set(value) {
             editMe {
                 it.putString(USER_GOL_DARAH, value)
+            }
+        }
+
+    // lokasi donor getter setter
+    var SharedPreferences.lokasidonor
+        get() = getString(USER_LOKASI_DONOR, "")
+        set(value) {
+            editMe {
+                it.putString(USER_LOKASI_DONOR, value)
+            }
+        }
+
+    // tanggal mobile unit getter setter (latest)
+    var SharedPreferences.tanggalmobileunit
+        get() = getString(USER_TANGGAL_MU, "")
+        set(value) {
+            editMe {
+                it.putString(USER_TANGGAL_MU, value)
             }
         }
 

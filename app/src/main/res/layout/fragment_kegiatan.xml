@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg"
+    tools:context=".fragments.KegiatanFragment">
+
+    <LinearLayout
+        android:id="@+id/gaya"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:background="@color/main_1" />
+
+        <View
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="2.2"
+            android:background="@color/main_2" />
+
+        <View
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1.6"
+            android:background="@color/main_3" />
+
+        <View
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            android:background="@color/main_4" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/back_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="15dp"
+            android:layout_marginTop="17dp"
+            android:contentDescription="@string/back"
+            android:src="@drawable/back_button" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/back_btn"
+            android:layout_marginTop="17dp"
+            android:layout_centerVertical="true"
+            android:text="SCHEDULE"
+            android:textStyle="bold"
+            android:textColor="@color/main_1"/>
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_kegiatan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/main_6_transparan"
+        android:padding="10dp"
+        tools:listitem="@layout/item_kegiatan" />
+
+</LinearLayout>

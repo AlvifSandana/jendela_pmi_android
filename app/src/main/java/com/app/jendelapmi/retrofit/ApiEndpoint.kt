@@ -7,7 +7,10 @@ import retrofit2.http.*
 interface ApiEndpoint {
     // get kegiatan
     @GET("kegiatan")
-    fun getKegiatan(): Call<HomeModel>
+    fun getKegiatan(
+        @Header("api-token") api_token: String,
+        @Header("role") role: String
+    ): Call<HomeModel>
 
     // get stok darah
     @GET("stokdarah")

@@ -3,6 +3,7 @@ package com.app.jendelapmi.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.app.jendelapmi.R
 import com.app.jendelapmi.models.HomeModel
@@ -18,8 +19,8 @@ class RVKegiatanPMI(private val data: ArrayList<HomeModel.Data>) :
      * define components of item view
      */
     class KegiatanPMIViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tanggalKegiatan = itemView.txt_tanggal_kegiatan
-        val judulKegiatan = itemView.txt_judul_kegiatan
+        val tanggalKegiatan: TextView = itemView.txt_tanggal_kegiatan
+        val judulKegiatan: TextView = itemView.txt_judul_kegiatan
     }
 
     /**

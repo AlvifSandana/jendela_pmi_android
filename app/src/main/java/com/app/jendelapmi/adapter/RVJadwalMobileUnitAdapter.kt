@@ -9,9 +9,10 @@ import com.app.jendelapmi.R
 import com.app.jendelapmi.models.MobileUnitModel
 import kotlinx.android.synthetic.main.item_table.view.*
 
-class RVJadwalMobileUnitAdapter(private val data: ArrayList<MobileUnitModel.Data>): RecyclerView.Adapter<RVJadwalMobileUnitAdapter.RVJadwalMobileUnitViewHolder>() {
+class RVJadwalMobileUnitAdapter(private val data: ArrayList<MobileUnitModel.Data>) :
+    RecyclerView.Adapter<RVJadwalMobileUnitAdapter.RVJadwalMobileUnitViewHolder>() {
 
-    class RVJadwalMobileUnitViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+    class RVJadwalMobileUnitViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val txt_tanggal: TextView = itemView.col_tanggal
         val txt_jam: TextView = itemView.col_jam
         val txt_instansi: TextView = itemView.col_instansi
@@ -22,8 +23,10 @@ class RVJadwalMobileUnitAdapter(private val data: ArrayList<MobileUnitModel.Data
         parent: ViewGroup,
         viewType: Int
     ): RVJadwalMobileUnitViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.item_table,
-            parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(
+            R.layout.item_table,
+            parent, false
+        )
 
         return RVJadwalMobileUnitViewHolder(itemView)
     }

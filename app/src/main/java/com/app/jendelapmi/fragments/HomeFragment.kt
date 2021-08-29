@@ -6,33 +6,37 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import androidx.viewpager2.widget.CompositePageTransformer
+import androidx.viewpager2.widget.MarginPageTransformer
+import androidx.viewpager2.widget.ViewPager2
 import com.app.jendelapmi.R
+import com.app.jendelapmi.adapter.RVHomeCarouselAdapter
 import com.app.jendelapmi.adapter.RVKegiatanPMI
 import com.app.jendelapmi.helpers.AlertHelper
+import com.app.jendelapmi.models.CarouselHomeModel
 import com.app.jendelapmi.models.HomeModel
 import com.app.jendelapmi.retrofit.ApiService
 import com.app.slider.PreferenceHelper.api_token
 import com.app.slider.PreferenceHelper.customPreference
 import kotlinx.android.synthetic.main.fragment_home.*
-import org.imaginativeworld.whynotimagecarousel.ImageCarousel
-import org.imaginativeworld.whynotimagecarousel.model.CarouselGravity
-import org.imaginativeworld.whynotimagecarousel.model.CarouselItem
-import org.imaginativeworld.whynotimagecarousel.model.CarouselType
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.math.abs
 
 
 class HomeFragment : Fragment() {
-    private lateinit var button_stok_darah: Button
-    private lateinit var button_mobile_unit: Button
-    private lateinit var rvKegiatanPMI: RecyclerView
+    lateinit var button_stok_darah: Button
+    lateinit var button_mobile_unit: Button
+    lateinit var rvKegiatanPMI: RecyclerView
+    lateinit var homeCarousel: ViewPager2
+    lateinit var txtLihatLainnya: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,50 +49,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // define buttons
+        // define view components
         button_stok_darah = btn_stok_darah
         button_mobile_unit = btn_mobile_unit
-
-        // define the carousel
-        val carousel: ImageCarousel = carousel
-        carousel.registerLifecycle(lifecycle)
-
-        // carousel contents
-        val list = mutableListOf<CarouselItem>()
-        list.add(
-            CarouselItem(
-                imageUrl = "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=889&q=80",
-            )
-        )
-        list.add(
-            CarouselItem(
-                imageUrl = "https://images.unsplash.com/photo-1626233127008-5431435e7a57?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1498&q=80"
-            )
-        )
-        list.add(
-            CarouselItem(
-                imageUrl = "https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80"
-            )
-        )
-
-        // carousel settings
-        carousel.showTopShadow = false
-        carousel.showBottomShadow = false
-        carousel.showNavigationButtons = false
-        carousel.carouselType = CarouselType.SHOWCASE
-        carousel.scaleOnScroll = true
-        carousel.carouselGravity = CarouselGravity.CENTER
-        carousel.imagePlaceholder = ContextCompat.getDrawable(
-            requireContext(),
-            R.drawable.ic_outline_image_24
-        )
-
-        // set carousel data
-        carousel.setData(list)
-
-        // define rv Kegiatan PMI
         rvKegiatanPMI = rv_home_kegiatan_pmi
-        getKegiatanPMI()
+        txtLihatLainnya = lihat_lainnya
 
         // button listener
         button_stok_darah.setOnClickListener {
@@ -107,11 +72,50 @@ class HomeFragment : Fragment() {
                 "Silahkan login untuk melanjutkan."
             )
         }
+        // lihat lainnya listener
+        txtLihatLainnya.setOnClickListener {
+            gotoFragment(KegiatanFragment())
+        }
+
+        val images: ArrayList<CarouselHomeModel> = arrayListOf()
+        images.add(
+            CarouselHomeModel("https://images.unsplash.com/photo-1626948683643-bcf4aaf91829?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80")
+        )
+        images.add(
+            CarouselHomeModel("https://images.unsplash.com/photo-1626948683643-bcf4aaf91829?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80")
+        )
+        images.add(
+            CarouselHomeModel("https://images.unsplash.com/photo-1626948683643-bcf4aaf91829?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80")
+        )
+
+        homeCarousel = carouselHome
+        homeCarousel.adapter = RVHomeCarouselAdapter(images)
+        homeCarousel.clipToPadding = false
+        homeCarousel.clipChildren = false
+        homeCarousel.offscreenPageLimit = 3
+        homeCarousel.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+
+        // composite page transformer
+        val compositePageTransformer = CompositePageTransformer()
+        compositePageTransformer.addTransformer(MarginPageTransformer(10))
+        compositePageTransformer.addTransformer { page, position ->
+            val r: Float = 1 - abs(position)
+            page.scaleY = 0.85f + r * 0.15f
+        }
+
+        homeCarousel.setPageTransformer(compositePageTransformer)
+        getKegiatanPMI()
     }
 
+    /**
+     * get data kegiatan from api
+     */
     private fun getKegiatanPMI() {
         try {
-            ApiService.endpoint.getKegiatan()
+            // instance of shared preference helper
+            val prefs = customPreference(requireContext(), "userdata")
+            // get data kegiatan
+            ApiService.endpoint.getKegiatan(prefs.api_token.toString(), "pendonor")
                 .enqueue(object : Callback<HomeModel> {
                     override fun onResponse(call: Call<HomeModel>, response: Response<HomeModel>) {
                         val status = response.body()?.status
@@ -119,7 +123,6 @@ class HomeFragment : Fragment() {
                         val data = response.body()?.data
                         if (status == "success") {
                             if (data != null) {
-                                Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
                                 // set rv adapter and layout manager
                                 rvKegiatanPMI.adapter = RVKegiatanPMI(data)
                                 rvKegiatanPMI.layoutManager = LinearLayoutManager(requireContext())
@@ -139,6 +142,9 @@ class HomeFragment : Fragment() {
         }
     }
 
+    /**
+     * go to another fragment
+     */
     private fun gotoFragment(fragment: Fragment) {
         val transaction: FragmentTransaction = activity?.supportFragmentManager!!.beginTransaction()
         transaction.replace(R.id.rootFragment, fragment)

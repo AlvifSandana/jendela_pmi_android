@@ -52,7 +52,7 @@ class UDDFragment : Fragment() {
             CarouselExploreUDDModel("https://images.unsplash.com/photo-1626897844971-aef92643f056?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=375&q=80")
         )
 
-        // Carousel
+        // Carousel explore UDD configuration
         exploreUDDCarousel = vp2
         exploreUDDCarousel.adapter = RVExploreUDDAdapter(images)
         exploreUDDCarousel.clipToPadding = false
@@ -60,7 +60,7 @@ class UDDFragment : Fragment() {
         exploreUDDCarousel.offscreenPageLimit = 3
         exploreUDDCarousel.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
 
-        // Carousel
+        // Carousel more info configuration
         moreinfoUDDCarousel = vp2_moreinfo
         moreinfoUDDCarousel.adapter = RVExploreUDDAdapter(images)
         moreinfoUDDCarousel.clipToPadding = false

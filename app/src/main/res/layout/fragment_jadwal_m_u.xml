@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/bg"
     tools:context=".fragments.JadwalMUFragment">
 
     <LinearLayout
@@ -145,12 +146,13 @@
                 android:textColor="@color/white"
                 android:textStyle="bold" />
         </TableRow>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/row_container_data"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/row_th"
-            tools:listitem="@layout/item_table"/>
+            tools:listitem="@layout/item_table" />
 
     </RelativeLayout>
 
