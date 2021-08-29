@@ -17,7 +17,7 @@ Fitur yang sedang dikerjakan:
 #### Backend
 - [x] Register new user
 - [x] Login new user
-- [ ] show notifikasi
+- [x] show notifikasi
 - [x] show Stok darah in table
 - [x] show Jadwal Mobil Unit
 - [ ] remind new notifikasi
