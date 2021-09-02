@@ -57,7 +57,6 @@ class KegiatanFragment : Fragment() {
                 .enqueue(object : Callback<HomeModel> {
                     override fun onResponse(call: Call<HomeModel>, response: Response<HomeModel>) {
                         val status = response.body()?.status
-                        val message = response.body()?.message
                         val data = response.body()?.data
                         if (status == "success") {
                             if (data != null) {

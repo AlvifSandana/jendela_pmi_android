@@ -16,7 +16,6 @@ import com.app.jendelapmi.adapter.RVExploreUDDAdapter
 import com.app.jendelapmi.models.CarouselExploreUDDModel
 import kotlinx.android.synthetic.main.fragment_udd.*
 import kotlin.math.abs
-import kotlin.math.exp
 
 class UDDFragment : Fragment() {
 
