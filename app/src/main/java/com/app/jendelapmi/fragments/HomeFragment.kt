@@ -1,5 +1,10 @@
 package com.app.jendelapmi.fragments
 
+import android.app.AlarmManager
+import android.app.PendingIntent
+import android.content.Context
+import android.content.Context.ALARM_SERVICE
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,6 +34,8 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.math.abs
 
 
@@ -48,6 +56,7 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val pref = customPreference(requireContext(), "userdata")
 
         // define view components
         button_stok_darah = btn_stok_darah
@@ -57,7 +66,6 @@ class HomeFragment : Fragment() {
 
         // button listener
         button_stok_darah.setOnClickListener {
-            val pref = customPreference(requireContext(), "userdata")
             if (pref.api_token != "") gotoFragment(StokDarahFragment()) else AlertHelper.createAlert(
                 requireContext(),
                 "Info",
@@ -65,18 +73,19 @@ class HomeFragment : Fragment() {
             )
         }
         button_mobile_unit.setOnClickListener {
-            val pref = customPreference(requireContext(), "userdata")
             if (pref.api_token != "") gotoFragment(JadwalMUFragment()) else AlertHelper.createAlert(
                 requireContext(),
                 "Info",
                 "Silahkan login untuk melanjutkan."
             )
         }
+
         // lihat lainnya listener
         txtLihatLainnya.setOnClickListener {
             gotoFragment(KegiatanFragment())
         }
 
+        // set array list of images for carousel
         val images: ArrayList<CarouselHomeModel> = arrayListOf()
         images.add(
             CarouselHomeModel("https://images.unsplash.com/photo-1626948683643-bcf4aaf91829?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80")
@@ -88,6 +97,7 @@ class HomeFragment : Fragment() {
             CarouselHomeModel("https://images.unsplash.com/photo-1626948683643-bcf4aaf91829?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80")
         )
 
+        // settings for carousel
         homeCarousel = carouselHome
         homeCarousel.adapter = RVHomeCarouselAdapter(images)
         homeCarousel.clipToPadding = false
@@ -119,7 +129,6 @@ class HomeFragment : Fragment() {
                 .enqueue(object : Callback<HomeModel> {
                     override fun onResponse(call: Call<HomeModel>, response: Response<HomeModel>) {
                         val status = response.body()?.status
-                        val message = response.body()?.message
                         val data = response.body()?.data
                         if (status == "success") {
                             if (data != null) {
