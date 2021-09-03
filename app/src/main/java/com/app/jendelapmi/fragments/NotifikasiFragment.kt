@@ -45,12 +45,9 @@ class NotifikasiFragment : Fragment() {
         val txtJadwalDonorRutin = txt_jadwal_donor_rutin
         val txtLokasiDonorTerdekat = txt_lokasi_donor_terdekat
         // set text value
-        txtTanggalTerakhirDonor.text = if (prefs.status == null || prefs.status != "") prefs.status else "-----"
-        txtJadwalDonor.text =
-            if (prefs.tanggalmobileunit != null || prefs.tanggalmobileunit != "")
-                changeDateFormat(prefs.tanggalmobileunit!!
-            ) else "-"
-        txtJadwalDonorRutin.text = if (prefs.status == null || prefs.status != "") prefs.status else "-----"
+        txtTanggalTerakhirDonor.text = if (prefs.status != "") prefs.status else "-----"
+        txtJadwalDonor.text = if (prefs.tanggalmobileunit != "") changeDateFormat(prefs.tanggalmobileunit!!) else "-----"
+        txtJadwalDonorRutin.text = if (prefs.status != "") prefs.status else "-----"
         txtLokasiDonorTerdekat.text = prefs.lokasidonor
     }
 

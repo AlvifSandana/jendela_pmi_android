@@ -8,10 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.app.jendelapmi.R
+import com.app.jendelapmi.models.UpdateProfileModel
 import com.app.jendelapmi.models.UpdateProfileResponseModel
 import com.app.jendelapmi.retrofit.ApiService
 import com.app.slider.PreferenceHelper.TTL
 import com.app.slider.PreferenceHelper.address
+import com.app.slider.PreferenceHelper.api_token
 import com.app.slider.PreferenceHelper.customPreference
 import com.app.slider.PreferenceHelper.fullname
 import com.app.slider.PreferenceHelper.golongan_darah
@@ -78,11 +80,17 @@ class EditProfileFragment : Fragment() {
     private fun updateProfile() {
         try {
             val prefs = customPreference(requireContext(), "userdata")
+            val id = prefs.id
+            val token = prefs.api_token.toString()
+            val name = fullname.editText?.text.toString()
+            val mail = email.editText?.text.toString()
+            val pass = password.editText?.text.toString()
+            val address = alamat.editText?.text.toString()
+            val Ttl = ttl.editText?.text.toString()
+            val gd = golongan_darah.editText?.text.toString()
             ApiService.endpoint.updateProfile(
-                prefs.id, fullname.editText?.text.toString(), email.editText?.text.toString(),
-                password.editText?.text.toString(), alamat.editText?.text.toString(), ttl.editText?.text.toString(),
-                golongan_darah.editText?.text.toString()
-            ).enqueue(object: Callback<UpdateProfileResponseModel> {
+                id, "pendonor", token,  name, mail, pass, address, Ttl, gd
+            ).enqueue(object : Callback<UpdateProfileResponseModel> {
                 override fun onResponse(
                     call: Call<UpdateProfileResponseModel>,
                     response: Response<UpdateProfileResponseModel>
@@ -90,8 +98,7 @@ class EditProfileFragment : Fragment() {
                     val status = response.body()?.status
                     val message = response.body()?.message
                     val data = response.body()?.data
-
-                    if (status == "success"){
+                    if (status == "success") {
                         prefs.fullname = data!![0].nama_pendonor
                         prefs.userEmail = data[0].email
                         prefs.password = data[0].password

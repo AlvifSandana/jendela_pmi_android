@@ -81,13 +81,13 @@ class HomeFragment : Fragment() {
         // set array list of images for carousel
         val images: ArrayList<CarouselHomeModel> = arrayListOf()
         images.add(
-            CarouselHomeModel("https://images.unsplash.com/photo-1626948683643-bcf4aaf91829?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80")
+            CarouselHomeModel("http://192.168.0.101:8000/images/uploaded/moreinfo/11.jpeg")
         )
         images.add(
-            CarouselHomeModel("https://images.unsplash.com/photo-1626948683643-bcf4aaf91829?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80")
+            CarouselHomeModel("http://192.168.0.101:8000/images/uploaded/moreinfo/12.jpeg")
         )
         images.add(
-            CarouselHomeModel("https://images.unsplash.com/photo-1626948683643-bcf4aaf91829?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80")
+            CarouselHomeModel("http://192.168.0.101:8000/images/uploaded/moreinfo/13.jpeg")
         )
 
         // settings for carousel

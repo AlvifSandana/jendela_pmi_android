@@ -88,9 +88,10 @@
             android:id="@+id/vp2_moreinfo"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:layout_below="@id/lbl_more_info"
             android:layout_marginHorizontal="30dp"
+            android:layout_marginBottom="20dp"
             android:paddingStart="60dp"
-            android:paddingEnd="60dp"
-            android:layout_below="@id/lbl_more_info"/>
+            android:paddingEnd="60dp" />
     </RelativeLayout>
 </ScrollView>

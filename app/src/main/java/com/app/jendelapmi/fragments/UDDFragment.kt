@@ -14,6 +14,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.app.jendelapmi.R
 import com.app.jendelapmi.adapter.RVExploreUDDAdapter
 import com.app.jendelapmi.models.CarouselExploreUDDModel
+import com.app.jendelapmi.models.CarouselHomeModel
 import kotlinx.android.synthetic.main.fragment_udd.*
 import kotlin.math.abs
 
@@ -33,27 +34,62 @@ class UDDFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.GINGERBREAD)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        // define array list of images url
+        val imagesUDD: ArrayList<CarouselExploreUDDModel> = arrayListOf()
+        val imagesMoreInfo: ArrayList<CarouselExploreUDDModel> = arrayListOf()
+        imagesUDD.add(
+            CarouselExploreUDDModel("http://192.168.0.101:8000/images/uploaded/udd/1.jpg")
+        )
+        imagesUDD.add(
+            CarouselExploreUDDModel("http://192.168.0.101:8000/images/uploaded/udd/2.jpg")
+        )
+        imagesUDD.add(
+            CarouselExploreUDDModel("http://192.168.0.101:8000/images/uploaded/udd/3.jpeg")
+        )
+        imagesUDD.add(
+            CarouselExploreUDDModel("http://192.168.0.101:8000/images/uploaded/udd/4.jpeg")
+        )
+        imagesMoreInfo.add(
+            CarouselExploreUDDModel("http://192.168.0.101:8000/images/uploaded/moreinfo/1.jpeg")
+        )
+        imagesMoreInfo.add(
+            CarouselExploreUDDModel("http://192.168.0.101:8000/images/uploaded/moreinfo/2.jpg")
+        )
+        imagesMoreInfo.add(
+            CarouselExploreUDDModel("http://192.168.0.101:8000/images/uploaded/moreinfo/3.jpg")
+        )
+        imagesMoreInfo.add(
+            CarouselExploreUDDModel("http://192.168.0.101:8000/images/uploaded/moreinfo/5.jpg")
+        )
+        imagesMoreInfo.add(
+            CarouselExploreUDDModel("http://192.168.0.101:8000/images/uploaded/moreinfo/6.jpg")
+        )
+        imagesMoreInfo.add(
+            CarouselExploreUDDModel("http://192.168.0.101:8000/images/uploaded/moreinfo/7.jpg")
+        )
+        imagesMoreInfo.add(
+            CarouselExploreUDDModel("http://192.168.0.101:8000/images/uploaded/moreinfo/8.jpeg")
+        )
+        imagesMoreInfo.add(
+            CarouselExploreUDDModel("http://192.168.0.101:8000/images/uploaded/moreinfo/9.jpeg")
+        )
+        imagesMoreInfo.add(
+            CarouselExploreUDDModel("http://192.168.0.101:8000/images/uploaded/moreinfo/10.jpeg")
+        )
+        imagesMoreInfo.add(
+            CarouselExploreUDDModel("http://192.168.0.101:8000/images/uploaded/moreinfo/11.jpeg")
+        )
+        imagesMoreInfo.add(
+            CarouselExploreUDDModel("http://192.168.0.101:8000/images/uploaded/moreinfo/12.jpeg")
+        )
+        imagesMoreInfo.add(
+            CarouselExploreUDDModel("http://192.168.0.101:8000/images/uploaded/moreinfo/13.jpeg")
+        )
 
-        val images: ArrayList<CarouselExploreUDDModel> = arrayListOf()
-        images.add(
-            CarouselExploreUDDModel("https://images.unsplash.com/photo-1626948683643-bcf4aaf91829?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80")
-        )
-        images.add(
-            CarouselExploreUDDModel("https://images.unsplash.com/photo-1598805858343-5722efd414ca?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=466&q=80")
-        )
-        images.add(
-            CarouselExploreUDDModel("https://images.unsplash.com/photo-1504297050568-910d24c426d3?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80")
-        )
-        images.add(
-            CarouselExploreUDDModel("https://images.unsplash.com/photo-1625456824710-dd9eac85d5df?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80")
-        )
-        images.add(
-            CarouselExploreUDDModel("https://images.unsplash.com/photo-1626897844971-aef92643f056?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=375&q=80")
-        )
 
         // Carousel explore UDD configuration
         exploreUDDCarousel = vp2
-        exploreUDDCarousel.adapter = RVExploreUDDAdapter(images)
+        exploreUDDCarousel.adapter = RVExploreUDDAdapter(imagesUDD)
         exploreUDDCarousel.clipToPadding = false
         exploreUDDCarousel.clipChildren = false
         exploreUDDCarousel.offscreenPageLimit = 3
@@ -61,7 +97,7 @@ class UDDFragment : Fragment() {
 
         // Carousel more info configuration
         moreinfoUDDCarousel = vp2_moreinfo
-        moreinfoUDDCarousel.adapter = RVExploreUDDAdapter(images)
+        moreinfoUDDCarousel.adapter = RVExploreUDDAdapter(imagesMoreInfo)
         moreinfoUDDCarousel.clipToPadding = false
         moreinfoUDDCarousel.clipChildren = false
         moreinfoUDDCarousel.offscreenPageLimit = 3

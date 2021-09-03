@@ -51,11 +51,14 @@ interface ApiEndpoint {
     @PUT("pendonor/{user_id}")
     fun updateProfile(
         @Path("user_id") id: Int,
+        @Header("role") role: String,
+        @Header("api_token") api_token: String,
         @Field("nama_pendonor") nama: String,
         @Field("email") email: String,
         @Field("password") password: String,
         @Field("alamat") alamat: String,
         @Field("ttl") ttl: String,
         @Field("golongan_darah") golongan_darah: String
+//        @Body profile: UpdateProfileModel
     ): Call<UpdateProfileResponseModel>
 }
