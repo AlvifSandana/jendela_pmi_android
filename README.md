@@ -1,5 +1,4 @@
 ## Jendela PMI android
-
 Fitur yang sedang dikerjakan:
 
 #### Frontend
@@ -20,5 +19,13 @@ Fitur yang sedang dikerjakan:
 - [x] show notifikasi
 - [x] show Stok darah in table
 - [x] show Jadwal Mobil Unit
-- [ ] remind new notifikasi
+- [x] remind new notifikasi
 - [x] retrieve data from restAPI
+
+## How to use
+1. Clone repository ini
+2. Buka Android Studio, lalu buka project ini
+3. Tunggu hingga semua dependecies terunduh 
+4. Atur ```baseURL``` untuk retrofit, tepatnya pada file ```ApiService.kt``` 
+5. Jangan lupa run web api nya sebelum run app ini
+6. Happy build!!
