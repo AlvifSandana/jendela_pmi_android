@@ -59,6 +59,5 @@ interface ApiEndpoint {
         @Field("alamat") alamat: String,
         @Field("ttl") ttl: String,
         @Field("golongan_darah") golongan_darah: String
-//        @Body profile: UpdateProfileModel
     ): Call<UpdateProfileResponseModel>
 }

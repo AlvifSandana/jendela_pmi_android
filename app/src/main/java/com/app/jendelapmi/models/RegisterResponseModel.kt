@@ -3,7 +3,7 @@ package com.app.jendelapmi.models
 data class RegisterResponseModel(
     val status: String,
     val message: String,
-    val data: List<Data>
+    val data: Data
 ) {
     data class Data(
         val nama: String,

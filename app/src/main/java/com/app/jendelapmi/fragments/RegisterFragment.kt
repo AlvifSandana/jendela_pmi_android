@@ -1,7 +1,6 @@
 package com.app.jendelapmi.fragments
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -91,14 +90,11 @@ class RegisterFragment : Fragment() {
                     response: Response<RegisterResponseModel>
                 ) {
                     val status = response.body()?.status
-                    val message = response.body()?.message
-                    Log.d("responseRegister", status.toString())
-                    Log.d("responseRegister", message.toString())
-                    Log.d("responseRegister", response.body().toString())
                     if (status == "success") {
                         Toast.makeText(activity, "Berhasil registrasi! Silahkan klik tombol login.", Toast.LENGTH_LONG).show()
+                        gotoLoginFragment()
                     } else {
-                        Toast.makeText(activity, message, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(activity, "Email telah terdaftar pada akun lain.", Toast.LENGTH_SHORT).show()
                     }
                 }
 
