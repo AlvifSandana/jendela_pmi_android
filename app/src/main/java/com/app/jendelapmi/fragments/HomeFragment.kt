@@ -66,11 +66,7 @@ class HomeFragment : Fragment() {
             )
         }
         button_mobile_unit.setOnClickListener {
-            if (pref.api_token != "") gotoFragment(JadwalMUFragment()) else AlertHelper.createAlert(
-                requireContext(),
-                "Info",
-                "Silahkan login untuk melanjutkan."
-            )
+            gotoFragment(JadwalMUFragment())
         }
 
         // lihat lainnya listener
@@ -127,7 +123,7 @@ class HomeFragment : Fragment() {
                             if (data != null) {
                                 // set rv adapter and layout manager
                                 rvKegiatanPMI.adapter = RVKegiatanPMI(data)
-                                rvKegiatanPMI.layoutManager = LinearLayoutManager(requireContext())
+                                rvKegiatanPMI.layoutManager = LinearLayoutManager(context)
                             }
                         }
                     }

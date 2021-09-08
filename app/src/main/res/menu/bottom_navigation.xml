@@ -20,6 +20,6 @@
     <item
         android:id="@+id/userMenu"
         android:icon="@drawable/ic_action_user"
-        android:title="Notifikasi"
+        android:title="Profil"
         />
 </menu>
