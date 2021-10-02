@@ -89,6 +89,7 @@ class LoginFragment : Fragment() {
                                 prefs.TTL = resdata[0].ttl
                                 prefs.golongan_darah = resdata[0].golongan_darah
                                 Toast.makeText(activity, "Berhasil Login!", Toast.LENGTH_SHORT).show()
+                                gotoFragment(HomeFragment())
                             } else {
                                 Toast.makeText(activity, response.body()?.message, Toast.LENGTH_SHORT).show()
                             }
@@ -104,6 +105,12 @@ class LoginFragment : Fragment() {
         } catch (e: Exception) {
             Toast.makeText(activity, e.toString(), Toast.LENGTH_LONG).show()
         }
+    }
 
+    private fun gotoFragment(fragment: Fragment){
+        val transaction = activity?.supportFragmentManager?.beginTransaction()
+        transaction?.replace(R.id.rootFragment, fragment)
+        transaction?.disallowAddToBackStack()
+        transaction?.commit()
     }
 }

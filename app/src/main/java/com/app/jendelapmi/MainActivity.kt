@@ -14,8 +14,10 @@ import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.app.jendelapmi.fragments.*
+import com.app.jendelapmi.helpers.StatusDonorHelper
 import com.app.slider.PreferenceHelper.customPreference
 import com.app.slider.PreferenceHelper.password
+import com.app.slider.PreferenceHelper.status
 import com.app.slider.PreferenceHelper.tanggalmobileunit
 import com.app.slider.PreferenceHelper.userEmail
 import kotlinx.android.synthetic.main.activity_main.*
@@ -38,15 +40,15 @@ class MainActivity : AppCompatActivity() {
         }
         // check latest tanggalmobileunit from shared preference
         val prefs = customPreference(this, "userdata")
-        if (prefs.tanggalmobileunit != "") {
+        if (prefs.status != "") {
             // split date string to array
-            val rawDate = prefs.tanggalmobileunit!!.split("-").toTypedArray()
+            val rawDate = StatusDonorHelper.parseStatusDonor(prefs.status!!)
             // create calendar instance
             val calendar = Calendar.getInstance()
             // set calendar with date value
-            calendar.set(Calendar.YEAR, rawDate[0].toInt())
-            calendar.set(Calendar.MONTH, rawDate[1].toInt() - 1)
-            calendar.set(Calendar.DAY_OF_MONTH, rawDate[2].toInt())
+            calendar.set(Calendar.YEAR, rawDate[0])
+            calendar.set(Calendar.MONTH, rawDate[1])
+            calendar.set(Calendar.DAY_OF_MONTH, rawDate[2])
             calendar.set(Calendar.HOUR, 7)
             calendar.set(Calendar.MINUTE, 0)
             calendar.set(Calendar.SECOND, 0)
